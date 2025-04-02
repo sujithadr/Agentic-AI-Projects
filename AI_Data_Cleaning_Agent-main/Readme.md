@@ -12,65 +12,116 @@ The **AI-Powered Data Cleaning System** is a **Streamlit + FastAPI + AI** applic
 - ✅ **FastAPI Backend**: Handles requests and integrates AI-based transformations.
 - ✅ **Real-time Processing**: Instant feedback and preview of cleaned data.
 
+
+
+## Project Structure
+```
+├── app/
+│   ├── app.py               # Streamlit web application
+│
+├── scripts/
+│   ├── ai_agents.py         # AI-powered data cleaning using OpenAI API
+│   ├── backend.py           # FastAPI backend for data processing
+│   ├── data_cleaning.py     # Rule-based data cleaning functions
+│   ├── data_ingestion.py    # Data loading from various sources
+│
+├── main.py                  # Main script to run the data processing pipeline
+├── requirements.txt         # Dependencies list
+├── README.md                # Documentation
+├── .env                     # Environment variables (API keys)
+```
+
 ---
 
-##  Architecture & Flow
-### **1️⃣ Data Ingestion**
-- Users can upload **CSV/Excel** files.
-- Users can enter **SQL Queries** to fetch database data.
-- Users can enter an **API Endpoint** to retrieve JSON data.
+## Installation
+### Prerequisites
+Ensure you have Python installed (>=3.8).
 
-### **2️⃣ Data Cleaning**
-- **Rule-Based Cleaning**:
-  - Handles missing values (imputation)
-  - Removes duplicates
-  - Standardizes column formats
-- **AI-Powered Cleaning**:
-  - Uses **LangChain AI Agent** to enhance data quality
-  - Automates complex transformations
+### 1️⃣ Clone the repository:
+```sh
+git clone https://github.com/sujithadr/AI_Data_Cleaning_Agent-main.git
+cd data-cleaning-framework
+```
 
-### **3️⃣ Processing & Execution**
-1. **Frontend (Streamlit)**
-   - Accepts user input (File Upload, SQL Query, or API URL)
-   - Sends requests to FastAPI
-   - Displays **Raw Data & Cleaned Data** after processing
-
-2. **Backend (FastAPI)**
-   - Handles requests and processes data
-   - Uses **LangChain AI Agent** for intelligent cleaning
-   - Connects to **PostgreSQL** for database operations
-   - Fetches API data and converts it into a structured DataFrame
-
-3. **AI Agent Processing**
-   - Uses **LangChain & LLMs** to apply intelligent transformations
-   - Returns **AI-cleaned data** as JSON for frontend visualization
-
-
-##  How to Run This Project
-
-###  1. Create and Activate Virtual Environment
-```bash
-# Create a virtual environment
-python -m venv ai_data_cleaning_env
-
-# Activate it
-source ai_data_cleaning_env/bin/activate  # Mac/Linux
-ai_data_cleaning_env\Scripts\activate  # Windows
-
- 2. Install Dependencies
-
+### 2️⃣ Install dependencies:
+```sh
 pip install -r requirements.txt
+```
 
- 3. Start FastAPI Backend
+### 3️⃣ Set up environment variables:
+Create a `.env` file and add the OpenAI API key:
+```sh
+OPENAI_API_KEY=your_api_key_here
+```
 
+---
+
+## Usage
+
+### 🏗️ Run the FastAPI Backend
+```sh
 uvicorn scripts.backend:app --reload
+```
+Access it at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
- 4. Start Streamlit UI
-
+### 🖥️ Run the Streamlit Web App
+```sh
 streamlit run app/app.py
+```
 
+### 🏃 Run the Main Processing Script
+```sh
+python main.py
+```
 
+---
 
+## API Endpoints
+| Endpoint          | Method | Description |
+|------------------|--------|-------------|
+| `/clean-data`    | POST   | Upload CSV/Excel for cleaning |
+| `/clean-db`      | POST   | Process data from a database |
+| `/clean-api`     | GET    | Fetch data from an API and clean it |
+
+---
+
+## Functionality Breakdown
+
+### **1️⃣ Data Ingestion (`scripts/data_ingestion.py`)**
+- Load data from **CSV, Excel, Databases, APIs**.
+- Handles various file formats and structured sources.
+
+### **2️⃣ Rule-Based Cleaning (`scripts/data_cleaning.py`)**
+- **Handle Missing Values**: Replace with mean/median/mode or drop rows.
+- **Remove Duplicates**: Deduplicate dataset.
+- **Fix Data Types**: Convert columns to appropriate formats.
+
+### **3️⃣ AI-Powered Cleaning (`scripts/ai_agents.py`)**
+- Uses OpenAI's **GPT models** for intelligent data cleaning.
+- Can detect and correct errors based on textual descriptions.
+
+### **4️⃣ FastAPI Backend (`scripts/backend.py`)**
+- API endpoints for data ingestion and cleaning.
+- Processes user-uploaded files, database queries, and API responses.
+
+### **5️⃣ Streamlit Web App (`app/app.py`)**
+- Interactive web interface for data upload and cleaning.
+- Visual representation of cleaned data.
+
+---
+
+## Contributing
+Feel free to submit **issues, feature requests, or pull requests**!
+
+---
+
+## License
+This project is licensed under the **MIT License**.
+
+---
+
+## Authors
+- Sujith Somanunnithan - [GitHub Profile](https://github.com/sujithadr)
 
 
 

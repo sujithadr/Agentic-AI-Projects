@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.env
+.venv/
+venv/
+ENV/
+
+# Secrets
+.env
+*.env
+
+# Jupyter/IPython
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs and outputs
+*.log
+logs/
+*.csv
+*.xlsx
+*.bak
