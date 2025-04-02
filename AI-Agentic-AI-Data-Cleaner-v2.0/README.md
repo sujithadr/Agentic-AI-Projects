@@ -66,7 +66,7 @@ streamlit run app/app.py
 
 ## 🐳 Run With Docker
 
-### 1. 🔐 Create `.env` (or rename `.env.template`)
+### 1. 🔐 Create `.env` 
 
 ```
 OPENAI_API_KEY=your-key-here
